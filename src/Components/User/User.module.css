@@ -1,0 +1,8 @@
+.user {
+    display: flex;
+}
+
+.user p {
+    width: 18%;
+    border: solid red 1px;
+}
