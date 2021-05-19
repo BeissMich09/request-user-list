@@ -5,7 +5,7 @@ import FormRegistration from "./FormRegistration/FormRegistration";
 
 const AddNewUser = () => {
   const state = useSelector((state) => state.newUserReducer);
-  console.log(state);
+  // console.log(state);
   const dispatch = useDispatch();
   let click = () => {
     if (state.addNewUser) {
@@ -16,8 +16,6 @@ const AddNewUser = () => {
   };
   return (
     <div>
-      {state.addNewUser ? <FormRegistration /> : null}
-
       <button
         onClick={() => {
           dispatch(getStateAdd(click()));
@@ -25,6 +23,7 @@ const AddNewUser = () => {
       >
         Добавить нового пользователя
       </button>
+      {state.addNewUser ? <FormRegistration /> : null}
     </div>
   );
 };

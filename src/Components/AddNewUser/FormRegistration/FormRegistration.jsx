@@ -1,10 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import ReactInputMask, { InputMask } from "react-input-mask";
+import ReactInputMask from "react-input-mask";
 
 const FormRegistration = () => {
   const {
-    watch,
     register,
     handleSubmit,
     formState: { errors },
@@ -12,7 +11,6 @@ const FormRegistration = () => {
   const onSubmit = (data) => {
     console.log("data", data);
   };
-  console.log("watch", register.id);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input

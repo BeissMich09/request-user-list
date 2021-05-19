@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../redux/users_reducer";
+import { getSearchBarValue, getUsers } from "../../redux/users_reducer";
 import User from "../User/Users";
 import style from "./TitlePage.module.css";
 
@@ -18,10 +18,49 @@ const TitlePage = () => {
       })
       .catch((error) => console.log(error));
   }, [dispatch]);
-  let user = state.users.map((item) => <User item={item} />);
+  let array = state.users;
+  const [newArr, setNewArr] = useState([]);
+
+  function search() {
+    console.log(state.searchBarValue !== "");
+    if (state.searchBarValue !== "") {
+      let result = state.users.slice().filter((item) => {
+        // console.log(item);
+        return (
+          item.firstName.trim().includes(state.searchBarValue) ||
+          item.lastName.trim().includes(state.searchBarValue) ||
+          item.email.trim().includes(state.searchBarValue) ||
+          item.phone.trim().includes(state.searchBarValue) ||
+          item.id.toString().includes(state.searchBarValue)
+        );
+      });
+      setNewArr(result);
+    } else {
+      setNewArr([]);
+    }
+  }
+  console.log(newArr);
+
+  let user = (
+    newArr.length !== 0 && state.searchBarValue !== "" ? newArr : array
+  ).map((item) => <User item={item} />);
   let title = state.tableTitle.map((item) => <div>{item}</div>);
   return (
     <div>
+      <div>
+        <input
+          onChange={(e) => {
+            dispatch(getSearchBarValue(e.target.value.trim()));
+            if (e.target.value === "") {
+              // array = state.users;
+              setNewArr([]);
+            }
+          }}
+          value={state.searchBarValue}
+          type="text"
+        />
+        <button onClick={search}>Найти</button>
+      </div>
       <div className={style.title}>{title}</div>
       <div>{user}</div>
     </div>
