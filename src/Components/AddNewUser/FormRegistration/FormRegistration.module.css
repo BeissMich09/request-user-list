@@ -1,0 +1,16 @@
+.form {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 50px 50px;
+    gap: 5px;
+}
+
+.form div input {
+    width: 80%;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+}

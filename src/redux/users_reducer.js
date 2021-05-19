@@ -1,5 +1,6 @@
 const GET_USERS = "GET_USERS";
 const GET_VALUE = "GET_VALUE";
+const PUSH_USER = "PUSH_USER";
 
 let initialState = {
   users: [],
@@ -10,15 +11,22 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS:
-      // state.users.push(action.users);
+      let newArr = state.users.concat(action.users);
       return {
         ...state,
-        users: action.users,
+        users: newArr,
       };
     case GET_VALUE:
       return {
         ...state,
         searchBarValue: action.value,
+      };
+    case PUSH_USER:
+      console.log(action.user);
+      state.users.unshift(action.user);
+      return {
+        ...state,
+        users: state.users,
       };
     default:
       return { ...state };
@@ -36,6 +44,12 @@ export const getSearchBarValue = (value) => {
   return {
     type: GET_VALUE,
     value,
+  };
+};
+export const pushNewUser = (user) => {
+  return {
+    type: PUSH_USER,
+    user,
   };
 };
 

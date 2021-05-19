@@ -43,8 +43,10 @@ const TitlePage = () => {
 
   let user = (
     newArr.length !== 0 && state.searchBarValue !== "" ? newArr : array
-  ).map((item) => <User item={item} />);
-  let title = state.tableTitle.map((item) => <div>{item}</div>);
+  ).map((item) => <User key={item.id + item.firstName} item={item} />);
+  let title = state.tableTitle.map((item, index) => (
+    <div key={index}>{item}</div>
+  ));
   return (
     <div>
       <div>
@@ -52,7 +54,6 @@ const TitlePage = () => {
           onChange={(e) => {
             dispatch(getSearchBarValue(e.target.value.trim()));
             if (e.target.value === "") {
-              // array = state.users;
               setNewArr([]);
             }
           }}
