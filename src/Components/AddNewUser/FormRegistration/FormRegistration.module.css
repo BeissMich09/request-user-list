@@ -4,13 +4,20 @@
     grid-template-columns: 30% 30% 30%;
     grid-template-rows: 50px 50px;
     gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .form div input {
-    width: 80%;
+    width: 200px;
 }
 
 .form div {
     display: flex;
     flex-direction: column;
+}
+
+.form p {
+    margin: 0;
 }

@@ -22,6 +22,7 @@ const FormRegistration = () => {
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
+        <p>id:</p>
         <input
           {...register("id", {
             required: true,
@@ -32,6 +33,7 @@ const FormRegistration = () => {
         {errors.id && <span>This field is required</span>}
       </div>
       <div>
+        <p>First Name:</p>
         <input
           {...register("firstName", {
             required: true,
@@ -43,6 +45,7 @@ const FormRegistration = () => {
         {errors.firstName && <span>This field is required</span>}
       </div>
       <div>
+        <p>Last Name:</p>
         <input
           {...register("lastName", {
             required: true,
@@ -54,6 +57,7 @@ const FormRegistration = () => {
         {errors.lastName && <span>This field is required</span>}
       </div>
       <div>
+        <p>Email:</p>
         <input
           {...register("email", {
             required: true,
@@ -64,6 +68,7 @@ const FormRegistration = () => {
         {errors.email && <span>This field is required</span>}
       </div>
       <div>
+        <p>Phone:</p>
         <InputMask
           {...register("phone", {
             required: true,

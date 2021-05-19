@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchBarValue, getUsers } from "../../redux/users_reducer";
 import User from "../User/Users";
+import OptionalWindow from "./OptionalWindow/OptionalWindow";
 import style from "./TitlePage.module.css";
 
 const TitlePage = () => {
@@ -93,8 +94,11 @@ const TitlePage = () => {
         />
         <button onClick={search}>Найти</button>
       </div>
-      <div className={style.title}>{title}</div>
-      <div>{user}</div>
+      <div className={style.table}>
+        {state.window ? <OptionalWindow item={state.user} /> : null}
+        <div className={style.title}>{title}</div>
+        <div>{user}</div>
+      </div>
     </div>
   );
 };

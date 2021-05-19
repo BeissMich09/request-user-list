@@ -1,0 +1,6 @@
+.option {
+    width: 20%;
+    border: solid red 1px;
+    position: fixed;
+    right: 50px;
+}

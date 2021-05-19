@@ -6,3 +6,8 @@
     border: solid black 1px;
     width: 18%;
 }
+
+.table {
+    position: relative;
+    width: 80%;
+}
