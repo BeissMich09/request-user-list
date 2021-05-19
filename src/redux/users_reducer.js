@@ -1,20 +1,27 @@
 const GET_USERS = "GET_USERS";
 const GET_VALUE = "GET_VALUE";
 const PUSH_USER = "PUSH_USER";
+const SORT_USERS = "SORT_USERS";
 
 let initialState = {
   users: [],
-  tableTitle: ["id", "firstName", "lastName", "email", "phone"],
+  // tableTitle: ["id", "firstName", "lastName", "email", "phone"],
+  tableTitle: [
+    { id: 0, name: "id", nameSort: "id" },
+    { id: 1, name: "First Name", nameSort: "firstName" },
+    { id: 2, name: "Last Name", nameSort: "lastName" },
+    { id: 3, name: "Email", nameSort: "email" },
+    { id: 4, name: "Phone", nameSort: "phone" },
+  ],
   searchBarValue: "",
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS:
-      let newArr = state.users.concat(action.users);
       return {
         ...state,
-        users: newArr,
+        users: action.users,
       };
     case GET_VALUE:
       return {
@@ -28,6 +35,14 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users,
       };
+    // case SORT_USERS:
+    //   return {
+    //     ...state,
+    //     tableTitle: {
+    //       ...tableTitle,
+    //       sort: !action.bool,
+    //     },
+    //   };
     default:
       return { ...state };
   }

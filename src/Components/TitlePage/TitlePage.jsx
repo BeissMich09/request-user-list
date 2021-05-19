@@ -25,7 +25,6 @@ const TitlePage = () => {
     console.log(state.searchBarValue !== "");
     if (state.searchBarValue !== "") {
       let result = state.users.slice().filter((item) => {
-        // console.log(item);
         return (
           item.firstName.trim().includes(state.searchBarValue) ||
           item.lastName.trim().includes(state.searchBarValue) ||
@@ -39,16 +38,48 @@ const TitlePage = () => {
       setNewArr([]);
     }
   }
-  console.log(newArr);
+  const [sort, setSort] = useState(0);
+  const sortArray = (array, field) => {
+    let newArray;
+    if (sort) {
+      setSort(!sort);
+      newArray = array.slice().sort(function (a, b) {
+        if (a[field] > b[field]) return -1;
+        if (a[field] < b[field]) return 1;
+        return 0;
+      });
+    } else {
+      setSort(!sort);
+      newArray = array.slice().sort(function (a, b) {
+        if (a[field] > b[field]) return 1;
+        if (a[field] < b[field]) return -1;
+        return 0;
+      });
+    }
+    dispatch(getUsers(newArray));
 
-  let user = (
-    newArr.length !== 0 && state.searchBarValue !== "" ? newArr : array
-  ).map((item) => <User key={item.id + item.firstName} item={item} />);
+    return newArray;
+  };
+
+  const users =
+    newArr.length !== 0 && state.searchBarValue !== "" ? newArr : array;
+  let user = users.map((item) => (
+    <User key={item.id + item.firstName} item={item} />
+  ));
   let title = state.tableTitle.map((item, index) => (
-    <div key={index}>{item}</div>
+    <div onClick={() => sortArray(users, `${item.nameSort}`)} key={index}>
+      {item.name}
+    </div>
   ));
   return (
     <div>
+      {sort === 0 ? (
+        <p>Нет сортировки</p>
+      ) : sort ? (
+        <p>Сортировка по возрастанию </p>
+      ) : (
+        <p>Сортировка по убыванию</p>
+      )}
       <div>
         <input
           onChange={(e) => {
