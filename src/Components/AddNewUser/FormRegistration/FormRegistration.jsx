@@ -1,13 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { pushNewUser } from "../../../redux/users_reducer";
 import style from "./FormRegistration.module.css";
 
 const FormRegistration = () => {
-  let state = useSelector((state) => state.usersReducer);
-  console.log(state);
   let dispatch = useDispatch();
   const {
     watch,
@@ -17,13 +15,13 @@ const FormRegistration = () => {
   } = useForm();
   const onSubmit = (data) => {
     dispatch(pushNewUser(data));
-    // console.log(typeof data);
   };
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <p>id:</p>
         <input
+          className={errors.id && style.error}
           {...register("id", {
             required: true,
             pattern: /^\d+$/i,
@@ -35,6 +33,7 @@ const FormRegistration = () => {
       <div>
         <p>First Name:</p>
         <input
+          className={errors.firstName && style.error}
           {...register("firstName", {
             required: true,
             minLength: 3,
@@ -53,12 +52,14 @@ const FormRegistration = () => {
             pattern: /^[A-Za-z]+$/i,
           })}
           type="text"
+          className={errors.lastName && style.error}
         />
         {errors.lastName && <span>This field is required</span>}
       </div>
       <div>
         <p>Email:</p>
         <input
+          className={errors.email && style.error}
           {...register("email", {
             required: true,
             pattern: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
@@ -70,6 +71,7 @@ const FormRegistration = () => {
       <div>
         <p>Phone:</p>
         <InputMask
+          className={errors.phone && style.error}
           {...register("phone", {
             required: true,
             pattern: /^\(([\d]{3})\)+([\d]{3})+-([\d]{4})$/,
@@ -80,19 +82,26 @@ const FormRegistration = () => {
         {errors.phone && <span>This field is required</span>}
       </div>
       <div>
-        <input
+        <button
+          className={style.button}
           disabled={
             watch("id") === "" ||
+            watch("id") === undefined ||
             watch("email") === "" ||
+            watch("email") === undefined ||
             watch("lastName") === "" ||
+            watch("lastName") === undefined ||
             watch("firstName") === "" ||
-            watch("phone") === "(___)___-____"
+            watch("firstName") === undefined ||
+            watch("phone") === "(___)___-____" ||
+            watch("phone") === undefined
               ? true
               : false
           }
           type="submit"
-        />
-        {console.log(watch("id") === "" && watch("email") === "")}
+        >
+          Отправить
+        </button>
       </div>
     </form>
   );

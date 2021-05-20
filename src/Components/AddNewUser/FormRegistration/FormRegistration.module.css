@@ -1,12 +1,21 @@
 .form {
-    width: 80%;
+    width: 52%;
+    height: 200px;
     display: grid;
     grid-template-columns: 30% 30% 30%;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 90px 90px;
     gap: 5px;
     justify-content: center;
     justify-items: center;
     align-items: center;
+    margin: 0 auto;
+    border: 5px solid #fff;
+    border-top: 5px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-collapse: collapse;
+    outline: 3px solid #ffd300;
+    font-size: 15px;
+    background: #fff !important;
 }
 
 .form div input {
@@ -20,4 +29,41 @@
 
 .form p {
     margin: 0;
+}
+
+.form input {
+    height: 25px;
+}
+
+.button {
+    height: 41px;
+    width: 200px;
+    background-color: #966bd6;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.button:hover {
+    background-color: #bb98f0;
+}
+
+.button:active {
+    background-color: #844ed6;
+}
+
+.button:disabled {
+    background-color: #59368f;
+}
+
+.button:focus {
+    outline: none !important;
+}
+
+.form span {
+    color: red;
+}
+
+.error {
+    border: solid red 3px;
 }

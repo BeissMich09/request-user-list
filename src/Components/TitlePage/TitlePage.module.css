@@ -3,11 +3,117 @@
 }
 
 .title div {
-    border: solid black 1px;
-    width: 18%;
+    width: 219px;
+    font-weight: bold;
+    padding: 7px;
+    background: #ffd300;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #ffd300;
+    cursor: pointer;
+}
+
+.table_pagination {
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .table {
-    position: relative;
     width: 80%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 5px solid #fff;
+    border-top: 5px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-collapse: collapse;
+    outline: 3px solid #ffd300;
+    font-size: 15px;
+    background: #fff !important;
+}
+
+.search_button {
+    padding: 0.7em 2.5em;
+    height: 38px;
+    background-color: #966bd6;
+    border: none;
+    cursor: pointer;
+}
+
+.search_button:hover {
+    background-color: #bb98f0;
+}
+
+.search_button:active {
+    background-color: #844ed6;
+}
+
+.search_input {
+    padding: 0.7em 1.5em;
+    width: 53%;
+    height: 15px;
+}
+
+.serach_sort {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.serach_sort p {
+    width: 238px;
+    font-weight: bold;
+}
+
+.search {
+    width: 580px;
+}
+
+.pagination_container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemLi {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #337ab7;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    list-style-type: none;
+}
+
+.activeA {
+    text-decoration: none;
+    z-index: 3;
+    color: #fff !important;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    cursor: default;
+}
+
+.linkA {
+    text-decoration: none;
+    color: black;
+}
+
+.activePage {
+    text-decoration: none;
+    color: white;
 }

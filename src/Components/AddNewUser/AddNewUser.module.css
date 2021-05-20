@@ -1,0 +1,16 @@
+.add_user {
+    padding: 0.7em 2.5em;
+    height: 38px;
+    background-color: #966bd6;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.add_user:hover {
+    background-color: #bb98f0;
+}
+
+.add_user:active {
+    background-color: #844ed6;
+}

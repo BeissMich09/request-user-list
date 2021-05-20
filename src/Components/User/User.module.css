@@ -3,6 +3,19 @@
 }
 
 .user p {
-    width: 18%;
-    border: solid red 1px;
+    width: 1105px;
+    margin: 0;
+    padding: 7px;
+    border: none;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    font-size: 15px;
+}
+
+.user {
+    cursor: pointer;
+}
+
+.user:nth-child(even) {
+    background: #f8f8f8 !important;
 }

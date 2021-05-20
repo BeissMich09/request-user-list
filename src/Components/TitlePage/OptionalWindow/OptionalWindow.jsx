@@ -4,12 +4,12 @@ import { getStateWindow } from "../../../redux/users_reducer";
 import style from "./OptionalWindow.module.css";
 
 const OptionalWindow = ({ item }) => {
-  console.log(item);
   const { city, state, streetAddress, zip } = item.address;
   const dispatch = useDispatch();
   return (
     <div className={style.option}>
       <span
+        className={style.close}
         onClick={() => {
           dispatch(getStateWindow(false));
         }}

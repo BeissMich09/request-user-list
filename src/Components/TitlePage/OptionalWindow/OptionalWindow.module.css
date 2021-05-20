@@ -1,6 +1,26 @@
 .option {
+    position: relative;
     width: 20%;
-    border: solid red 1px;
     position: fixed;
     right: 50px;
+    margin-bottom: 20px;
+    border: 5px solid #fff;
+    border-top: 5px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-collapse: collapse;
+    outline: 3px solid #ffd300;
+    font-size: 15px;
+    background: #fff !important;
+}
+
+.close {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    color: red;
+    border-radius: 50%;
+    top: -10px;
+    right: -10px;
+    margin: 0 auto;
+    cursor: pointer;
 }
