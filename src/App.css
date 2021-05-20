@@ -1,5 +1,10 @@
 .App {
     text-align: center;
+    height: 100vh;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
 }
 
 .buttons {
@@ -23,4 +28,18 @@
 
 .App button:active {
     background-color: #844ed6;
+}
+
+.container_loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    width: 300px;
+    margin: 0 auto;
 }

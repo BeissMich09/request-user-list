@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Pagination from "react-js-pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchBarValue, getUsers } from "../../redux/users_reducer";
@@ -9,16 +9,6 @@ import style from "./TitlePage.module.css";
 const TitlePage = () => {
   const state = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch();
-  useEffect(() => {
-    fetch(
-      `http://www.filltext.com/?rows=${state.countUsers}&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(getUsers(data));
-      })
-      .catch((error) => alert(error));
-  }, [dispatch, state.countUsers]);
   let array = state.users;
   const [newArr, setNewArr] = useState([]);
   const [activePage, setActivePage] = useState(1);
