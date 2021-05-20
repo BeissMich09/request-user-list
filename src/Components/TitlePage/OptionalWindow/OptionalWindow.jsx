@@ -4,7 +4,7 @@ import { getStateWindow } from "../../../redux/users_reducer";
 import style from "./OptionalWindow.module.css";
 
 const OptionalWindow = ({ item }) => {
-  const { city, state, streetAddress, zip } = item.address;
+  console.log(item.address);
   const dispatch = useDispatch();
   return (
     <div className={style.option}>
@@ -22,18 +22,43 @@ const OptionalWindow = ({ item }) => {
           {item.firstName} {item.lastName}
         </b>
       </div>
-      <div> Описание: {item.description}</div>
       <div>
-        Адрес проживания: <b>{streetAddress}</b>
+        Описание:
+        {item.description !== undefined && item.description !== null
+          ? item.description
+          : "Нет информации"}
       </div>
       <div>
-        Город: <b>{city}</b>
+        Адрес проживания:{" "}
+        <b>
+          {item.address !== undefined && item.address !== null
+            ? item.address.streetAddress
+            : "Нет информации"}
+        </b>
       </div>
       <div>
-        Провинция/штат: <b>{state}</b>
+        Город:
+        <b>
+          {item.address !== undefined && item.address !== null
+            ? item.address.city
+            : "Нет информации"}
+        </b>
       </div>
       <div>
-        Индекс: <b>{zip}</b>
+        Провинция/штат:{" "}
+        <b>
+          {item.address !== undefined && item.address !== null
+            ? item.address.state
+            : "Нет информации"}
+        </b>
+      </div>
+      <div>
+        Индекс:{" "}
+        <b>
+          {item.address !== undefined && item.address !== null
+            ? item.address.zip
+            : "Нет информации"}
+        </b>
       </div>
     </div>
   );

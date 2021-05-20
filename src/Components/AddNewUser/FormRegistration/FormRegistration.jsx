@@ -28,7 +28,7 @@ const FormRegistration = () => {
           })}
           type="text"
         />
-        {errors.id && <span>This field is required</span>}
+        {errors.id && <span>Неверно заполнено поле</span>}
       </div>
       <div>
         <p>First Name:</p>
@@ -41,7 +41,7 @@ const FormRegistration = () => {
           })}
           type="text"
         />
-        {errors.firstName && <span>This field is required</span>}
+        {errors.firstName && <span>Неверно заполнено поле</span>}
       </div>
       <div>
         <p>Last Name:</p>
@@ -54,7 +54,7 @@ const FormRegistration = () => {
           type="text"
           className={errors.lastName && style.error}
         />
-        {errors.lastName && <span>This field is required</span>}
+        {errors.lastName && <span>Неверно заполнено поле</span>}
       </div>
       <div>
         <p>Email:</p>
@@ -66,7 +66,7 @@ const FormRegistration = () => {
           })}
           type="email"
         />
-        {errors.email && <span>This field is required</span>}
+        {errors.email && <span>Неверно заполнено поле</span>}
       </div>
       <div>
         <p>Phone:</p>
@@ -79,7 +79,7 @@ const FormRegistration = () => {
           mask="(999)999-9999"
           alwaysShowMask={true}
         ></InputMask>
-        {errors.phone && <span>This field is required</span>}
+        {errors.phone && <span>Неверно заполнено поле</span>}
       </div>
       <div>
         <button

@@ -9,6 +9,7 @@ import loading from "./assets/img/loading.gif";
 const App = () => {
   const state = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch();
+  console.log(state);
   useEffect(() => {
     fetch(
       `http://www.filltext.com/?rows=${state.countUsers}&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
@@ -51,7 +52,6 @@ const App = () => {
           </button>
         </div>
       )}
-      {/* <img className="img" src={loading} alt="loader" /> */}
     </div>
   );
 };
