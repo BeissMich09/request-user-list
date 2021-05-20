@@ -16,7 +16,7 @@ const App = () => {
           <TitlePage />
         </div>
       ) : (
-        <div>
+        <div className="buttons">
           <button
             onClick={() => {
               dispatch(getUserCount(32));

@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.App div {
+.buttons {
     display: flex;
     justify-content: space-evenly;
     height: 100vh;
